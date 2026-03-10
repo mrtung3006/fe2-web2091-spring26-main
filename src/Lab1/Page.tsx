@@ -14,7 +14,7 @@ const data = [
     { key: 2, name: "Anna", email: "abc", role:"sv" },
 ];
 const { Header, Content, Footer } = Layout;
-function App() {
+function Page() {
   
   <Table columns={columns} dataSource={data} />;
     const onFinish = (values: any) => {
@@ -104,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default Page;
