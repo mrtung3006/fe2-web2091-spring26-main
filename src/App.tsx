@@ -10,7 +10,7 @@ const columns = [
 ];
 
 const data = [
-    { key: 1, name: "John", email: "abc", role:"sv" },
+    { key: 1, name: "Tung", email: "mrtung3006@gmail.com", role:"sv" },
     { key: 2, name: "Anna", email: "abc", role:"sv" },
 ];
 const { Header, Content, Footer } = Layout;
