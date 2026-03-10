@@ -1,9 +1,9 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Button, Form, Input,Layout } from "antd";
+import { Button, Form, Input, Layout } from "antd";
 const { Header, Content, Footer } = Layout;
 function App() {
-  
+
   const onFinish = (values: any) => {
     console.log(values);
   };
@@ -45,25 +45,36 @@ function App() {
       <Button type="primary">Click me</Button>;
       <Button type="primary">Click me</Button>;
       <Layout>
-      <Header style={{ color: "white" }}>Header</Header>
-      <Content style={{ padding: 20 }}>
-        <Form onFinish={onFinish}>
-      <Form.Item
-        name="email"
-        rules={[{ required: true, message: "Nhập email" }]}
-      >
-        <Input placeholder="Email" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button htmlType="submit" type="primary">
-          Login
-        </Button>
-      </Form.Item>
-    </Form>
-    </Content>
-      <Footer>Footer</Footer>
-    </Layout>
+        <Header style={{ color: "white" }}>Header</Header>
+        <Content style={{ padding: 20 }}>
+          <Form onFinish={onFinish}>
+            <Form.Item
+              name="email"
+              rules={[{ required: true, message: "Nhập email" }]}
+            >
+              <Input placeholder="Email" />
+            </Form.Item>
+              <Form.Item
+              name="name"
+              rules={[{ required: true, message: "Nhập name" }]}
+            >
+              <Input placeholder="Name" />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[{ required: true, message: "Nhập password" }]}
+            >
+              <Input placeholder="Password" />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit" type="primary">
+                Login
+              </Button>
+            </Form.Item>
+          </Form>
+        </Content>
+        <Footer>Footer</Footer>
+      </Layout>
       <Toaster />
     </>
   );
