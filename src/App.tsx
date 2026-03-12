@@ -61,7 +61,7 @@ function App() {
             <Layout>
                 <Header style={{ color: "white" }}>Header</Header>
                 <Content style={{ padding: 20 }}>
-                  <Table columns={columns} dataSource={data} />;
+                  <Table columns={columns} dataSource={data} />
                     <Button onClick={() => setOpen(true)}>Open</Button>
 
                     <Modal
