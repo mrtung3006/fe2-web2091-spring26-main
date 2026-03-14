@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Button, Form, Input, Layout,Modal,Table } from "antd";
+import { Button, Form, Input, Layout, Modal, Table } from "antd";
 import { useState } from 'react';
 
 const columns = [
@@ -10,18 +10,19 @@ const columns = [
 ];
 
 const data = [
-    { key: 1, name: "Tung", email: "mrtung3006@gmail.com", role:"sv" },
-    { key: 2, name: "Anna", email: "abc", role:"sv" },
+    { key: 1, name: "Tung", email: "mrtung3006@gmail.com", role: "sv" },
+    { key: 2, name: "Anna", email: "abc", role: "sv" },
 ];
 const { Header, Content, Footer } = Layout;
 function App() {
-  
-  <Table columns={columns} dataSource={data} />;
+
+    <Table columns={columns} dataSource={data} />;
+
     const onFinish = (values: any) => {
-        console.log(values);
+        console.log("Form data:", values);
     };
     const [open, setOpen] = useState(false);
-  return (
+    return (
         <>
             <nav className="bg-blue-600 text-white shadow">
                 <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -61,7 +62,7 @@ function App() {
             <Layout>
                 <Header style={{ color: "white" }}>Header</Header>
                 <Content style={{ padding: 20 }}>
-                  <Table columns={columns} dataSource={data} />
+                    <Table columns={columns} dataSource={data} />
                     <Button onClick={() => setOpen(true)}>Open</Button>
 
                     <Modal
@@ -69,28 +70,27 @@ function App() {
                         onCancel={() => setOpen(false)}
                         onOk={() => setOpen(false)}
                     >
-                        <Form onFinish={onFinish}>
+                        <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: 400 }}>
+                            <Form.Item label="Email" name="email">
+                                <Input />
+                            </Form.Item>
+
+                            <Form.Item label="Password" name="password">
+                                <Input.Password />
+                            </Form.Item>
                             <Form.Item
+                                label="Email"
                                 name="email"
-                                rules={[{ required: true, message: "Nhập email" }]}
+                                rules={[
+                                    { required: true, message: "Vui lòng nhập email" },
+                                    { type: "email", message: "Email không hợp lệ" },
+                                ]}
                             >
-                                <Input placeholder="Email" />
-                            </Form.Item>
-                            <Form.Item
-                                name="name"
-                                rules={[{ required: true, message: "Nhập name" }]}
-                            >
-                                <Input placeholder="Name" />
-                            </Form.Item>
-                            <Form.Item
-                                name="password"
-                                rules={[{ required: true, message: "Nhập password" }]}
-                            >
-                                <Input placeholder="Password" />
+                                <Input />
                             </Form.Item>
                             <Form.Item>
-                                <Button htmlType="submit" type="primary">
-                                    Login
+                                <Button type="primary" htmlType="submit">
+                                    Đăng nhập
                                 </Button>
                             </Form.Item>
                         </Form>
@@ -101,7 +101,7 @@ function App() {
             </Layout>
             <Toaster />
         </>
-  );
+    );
 }
 
 export default App;
