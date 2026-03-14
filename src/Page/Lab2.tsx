@@ -17,9 +17,9 @@ const columns1 = [
     { title: "ProductName", dataIndex: "product", 
         
     },
-    { title: "Price", dataIndex: "price", render: (status) => (
-      <span style={{ color: status === "instock" ? "green" : "red" }}>
-        {status}
+    { title: "Price", dataIndex: "price", render: (price) => (
+      <span style={{ color: price === "instock" ? "green" : "red" }}>
+        {price}
       </span>
     ),
         
