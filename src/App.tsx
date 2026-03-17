@@ -2,6 +2,8 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Button, Form, Input, Layout, Modal, Table } from "antd";
 import { useState } from 'react';
+import StoryForm from "./Page/Lab4";
+import CategoriesForm from './Page/Lab4,1';
 
 const columns = [
     { title: "Name", dataIndex: "name" },
@@ -63,37 +65,16 @@ function App() {
                 <Header style={{ color: "white" }}>Header</Header>
                 <Content style={{ padding: 20 }}>
                     <Table columns={columns} dataSource={data} />
+                    <CategoriesForm></CategoriesForm>
                     <Button onClick={() => setOpen(true)}>Open</Button>
-
+                    
                     <Modal
                         open={open}
                         onCancel={() => setOpen(false)}
                         onOk={() => setOpen(false)}
                     >
-                        <Form layout="vertical" onFinish={onFinish} style={{ maxWidth: 400 }}>
-                            <Form.Item label="Email" name="email">
-                                <Input />
-                            </Form.Item>
-
-                            <Form.Item label="Password" name="password">
-                                <Input.Password />
-                            </Form.Item>
-                            <Form.Item
-                                label="Email"
-                                name="email"
-                                rules={[
-                                    { required: true, message: "Vui lòng nhập email" },
-                                    { type: "email", message: "Email không hợp lệ" },
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit">
-                                    Đăng nhập
-                                </Button>
-                            </Form.Item>
-                        </Form>
+                        <StoryForm></StoryForm>
+                        
                     </Modal>
 
                 </Content>

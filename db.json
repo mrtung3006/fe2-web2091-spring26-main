@@ -1,4 +1,44 @@
 {
-  "products": [],
+  "stories": [
+    {
+      "title": "sad",
+      "author": "đấ",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "description": "ad",
+      "id": 1
+    },
+    {
+      "title": "ads",
+      "author": "ads",
+      "image": "dá",
+      "description": "da",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "title": "ads",
+      "description": "dá",
+      "id": 1
+    },
+    {
+      "title": "dá",
+      "isActive": true,
+      "description": "ads",
+      "id": 2
+    },
+    {
+      "title": "dá",
+      "isActive": true,
+      "description": "ads",
+      "id": 3
+    },
+    {
+      "title": "dá",
+      "isActive": true,
+      "description": "ads",
+      "id": 4
+    }
+  ],
   "users": []
 }
