@@ -4,6 +4,7 @@ import { Button, Form, Input, Layout, Modal, Table } from "antd";
 import { useState } from 'react';
 import StoryForm from "./Page/Lab4";
 import CategoriesForm from './Page/Lab4,1';
+import StoryList from "./Page/Lab5";
 
 const columns = [
     { title: "Name", dataIndex: "name" },
@@ -64,7 +65,7 @@ function App() {
             <Layout>
                 <Header style={{ color: "white" }}>Header</Header>
                 <Content style={{ padding: 20 }}>
-                    <Table columns={columns} dataSource={data} />
+                    <StoryList></StoryList>
                     <CategoriesForm></CategoriesForm>
                     <Button onClick={() => setOpen(true)}>Open</Button>
                     
