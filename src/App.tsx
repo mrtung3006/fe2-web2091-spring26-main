@@ -2,10 +2,10 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Button, Form, Input, Layout, Modal, Table } from "antd";
 import { useState } from 'react';
-import StoryForm from "./Page/Lab4";
-import CategoriesForm from './Page/Lab4,1';
-import StoryList from "./Page/Lab5";
+import EditStory from "./Page/Lab6";
 
+import { Routes, Route } from "react-router-dom";
+import { StoryList } from "./Page/Lab5";
 const columns = [
     { title: "Name", dataIndex: "name" },
     { title: "Email", dataIndex: "email" },
@@ -65,18 +65,10 @@ function App() {
             <Layout>
                 <Header style={{ color: "white" }}>Header</Header>
                 <Content style={{ padding: 20 }}>
-                    <StoryList></StoryList>
-                    <CategoriesForm></CategoriesForm>
-                    <Button onClick={() => setOpen(true)}>Open</Button>
-                    
-                    <Modal
-                        open={open}
-                        onCancel={() => setOpen(false)}
-                        onOk={() => setOpen(false)}
-                    >
-                        <StoryForm></StoryForm>
-                        
-                    </Modal>
+                    <Routes>
+                        <Route path="/edit/:id" element={<EditStory />}></Route>
+                    </Routes>
+                    <StoryList />
 
                 </Content>
                 <Footer>Footer</Footer>
