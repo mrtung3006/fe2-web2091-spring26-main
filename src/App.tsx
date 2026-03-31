@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Button, Form, Input, Layout, Modal, Table } from "antd";
 import { useState } from 'react';
 import EditStory from "./Page/Lab6";
-
+import Header from "./components/Header";
+import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
 import { StoryList } from "./Page/Lab5";
 const columns = [
@@ -16,7 +17,7 @@ const data = [
     { key: 1, name: "Tung", email: "mrtung3006@gmail.com", role: "sv" },
     { key: 2, name: "Anna", email: "abc", role: "sv" },
 ];
-const { Header, Content, Footer } = Layout;
+
 function App() {
 
     <Table columns={columns} dataSource={data} />;
@@ -62,17 +63,13 @@ function App() {
             </div>
             <Button type="primary">Click me</Button>;
             <Button type="primary">Click me</Button>;
-            <Layout>
-                <Header style={{ color: "white" }}>Header</Header>
-                <Content style={{ padding: 20 }}>
-                    <Routes>
-                        <Route path="/edit/:id" element={<EditStory />}></Route>
-                    </Routes>
-                    <StoryList />
-
-                </Content>
-                <Footer>Footer</Footer>
-            </Layout>
+            
+                
+                <div>
+                    <Header />
+                    <Login />
+                </div>
+                
             <Toaster />
         </>
     );
