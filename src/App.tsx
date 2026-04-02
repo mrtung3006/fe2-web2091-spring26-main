@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
 import { StoryList } from "./Page/Lab5";
+import Register from "./Page/Register";
 const columns = [
     { title: "Name", dataIndex: "name" },
     { title: "Email", dataIndex: "email" },
@@ -66,8 +67,8 @@ function App() {
             
                 
                 <div>
-                    <Header />
-                    <Login />
+                    <Header/>
+                    <Register/>
                 </div>
                 
             <Toaster />
