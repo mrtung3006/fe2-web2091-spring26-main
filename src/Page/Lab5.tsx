@@ -3,22 +3,9 @@ import { Button, Image, Popconfirm, Table } from "antd";
 import {Link} from "react-router-dom"
 import axios from "axios";
 
+import { useCRUDStory } from './useCRUDStory';
 export function StoryList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["stories"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/stories");
-      return res.data;
-    },
-  });
-  const qc = useQueryClient();
-  const { mutate } = useMutation({
-    mutationFn: async (id: number) =>
-      await axios.delete(`http://localhost:3000/stories/${id}`),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["stories"] });
-    },
-  });
+  const { list, remove } = useCRUDStory();
   const columns = [
     {
       title: "Ten truyen",
@@ -42,9 +29,9 @@ export function StoryList() {
             description="Are you sure to delete this story?"
             okText="Yes"
             cancelText="No"
-            onConfirm={() => mutate(record.id)}
-          >
-            <Button danger>Delete</Button>
+            onConfirm={() => remove.mutate(record.id)} // Sử dụng remove
+        >
+          <Button danger loading={remove.isPending}>Delete</Button>
           </Popconfirm>
           <Link to={`/edit/${record.id}`}>
         <Button type="primary">Edit</Button>
@@ -54,5 +41,5 @@ export function StoryList() {
     },
   ];
 
-  return <Table columns={columns} dataSource={data} loading={isLoading} />;
+  return <Table columns={columns} dataSource={list.data} loading={list.isLoading} />;
 }
